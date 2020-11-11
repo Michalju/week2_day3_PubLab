@@ -3,7 +3,7 @@ from src.drink import Drink
 
 class TestDrink(unittest.TestCase):
     def setUp(self):
-        self.drink_1 = Drink("Guinness", 10)
+        self.drink_1 = Drink("Guinness", 10, 2)
 
     #@unittest.skip("Delete this line to run the test")
     def test_create_first_drink(self):

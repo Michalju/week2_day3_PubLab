@@ -26,5 +26,11 @@ class Pub:
             customer.wallet -= self.cost_of_drink(drink_name)
         # increase pub cash/total
             self.till += self.cost_of_drink(drink_name)
+            customer._drunkenness += self.strength_of_drink(drink_name)
+
+    def strength_of_drink(self, drink_name):
+        for drink in self.drinks:
+            if drink.name == drink_name:
+                return drink.alcohol_level
         
     

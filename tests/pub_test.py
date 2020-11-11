@@ -5,9 +5,9 @@ from src.customer import Customer
 
 class TestPub(unittest.TestCase):
     def setUp(self):
-        self.drink_1 = Drink("Guinness", 10)
-        self.drink_2 = Drink("Gin", 15)
-        self.drink_3 = Drink("Whisky", 20)
+        self.drink_1 = Drink("Guinness", 10, 2)
+        self.drink_2 = Drink("Gin", 15, 4)
+        self.drink_3 = Drink("Whisky", 20, 6)
         self.BrewDog = Pub("Brewdog_edinburgh", 100, [self.drink_1, self.drink_2, self.drink_3])
         self.customer = Customer("Billy", 200, 45)
         self.customer_2 = Customer("Jane", 5, 30)
@@ -32,6 +32,7 @@ class TestPub(unittest.TestCase):
         self.BrewDog.sell_the_drink("Gin", self.customer)
         self.assertEqual(self.customer.wallet, 185) 
         self.assertEqual(self.BrewDog.till, 115)
+        self.assertEqual(self.customer._drunkenness, 4)
         self.BrewDog.sell_the_drink("Wine", self.customer)
         self.assertEqual(self.customer.wallet, 185) 
         self.assertEqual(self.BrewDog.till, 115)
