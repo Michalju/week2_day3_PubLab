@@ -1,14 +1,12 @@
 import unittest
-from src.person import Person
+from src.customer import Customer
 
-class TestPerson(unittest.TestCase):
+class TestCustomer(unittest.TestCase):
     def setUp(self):
-        self.person = Person("Guido van Rossum", 64)
+        self.customer = Customer("Billy", 200)
 
-    @unittest.skip("Delete this line to run the test")
-    def test_person_has_name(self):
-        self.assertEqual("Guido van Rossum", self.person.name)
-
-    @unittest.skip("Delete this line to run the test")
-    def test_person_has_age(self):
-        self.assertEqual(64, self.person.age)
+    #@unittest.skip("Delete this line to run the test")
+    def test_person_being_created(self):
+        self.assertEqual(self.customer.name, "Billy")
+        self.assertEqual(self.customer.wallet, 200)
+        self.assertNotEqual(self.customer.wallet, 100)
