@@ -3,6 +3,7 @@ class Pub:
         self.name = name
         self.till = till
         self.drinks = drinks
+        self._age_limit = 18
 
     def drink_exists(self, drink_name):
         for drink in self.drinks:
@@ -19,9 +20,11 @@ class Pub:
     def sell_the_drink(self, drink_name, customer):
         #check the drink exists
         #if drink exists - can customer afford it 
-        if self.drink_exists(drink_name) and self.cost_of_drink(drink_name) <= customer.wallet:
+        drink_check = self.drink_exists(drink_name)
+        if customer.age >= self._age_limit and drink_check and self.cost_of_drink(drink_name) <= customer.wallet:
         #reduce customer wallet 
             customer.wallet -= self.cost_of_drink(drink_name)
         # increase pub cash/total
             self.till += self.cost_of_drink(drink_name)
         
+    

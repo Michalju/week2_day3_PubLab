@@ -3,7 +3,8 @@ from src.customer import Customer
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):
-        self.customer = Customer("Billy", 200)
+        self.customer = Customer("Billy", 200, 45)
+        self.customer_2 = Customer("Jane", 5, 16)
 
     #@unittest.skip("Delete this line to run the test")
     def test_person_being_created(self):

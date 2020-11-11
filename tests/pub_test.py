@@ -9,8 +9,10 @@ class TestPub(unittest.TestCase):
         self.drink_2 = Drink("Gin", 15)
         self.drink_3 = Drink("Whisky", 20)
         self.BrewDog = Pub("Brewdog_edinburgh", 100, [self.drink_1, self.drink_2, self.drink_3])
-        self.customer = Customer("Billy", 200)
-        self.customer_2 = Customer("Jane", 5)
+        self.customer = Customer("Billy", 200, 45)
+        self.customer_2 = Customer("Jane", 5, 30)
+        self.customer_3 = Customer("Gerorge", 50, 16)
+
 
     #@unittest.skip("Delete this line to run the test")
     def test_create_first_pub(self):
@@ -35,6 +37,9 @@ class TestPub(unittest.TestCase):
         self.assertEqual(self.BrewDog.till, 115)
         self.BrewDog.sell_the_drink("Gin", self.customer_2)
         self.assertEqual(self.customer_2.wallet, 5) 
+        self.assertEqual(self.BrewDog.till, 115)
+        self.BrewDog.sell_the_drink("Gin", self.customer_3)
+        self.assertEqual(self.customer_3.wallet, 50)
         self.assertEqual(self.BrewDog.till, 115)
 
         
